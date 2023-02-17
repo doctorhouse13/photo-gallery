@@ -13,10 +13,13 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   images: IImage[]= [];
   imagesSubscription: Subscription ;
+  count: number = -1;
   constructor (private imageService: ImageService) {
     
     this.imagesSubscription = this.imageService.loadedImages$.subscribe((res)=> {
-      this.images = res;
+      this.images = res.data;
+      this.count = res.count;
+      console.log(this.count == this.images.length);
     });
     //PUT THIS IN INFINITE SCROLL COMPONENT
     this.loadNewImages();

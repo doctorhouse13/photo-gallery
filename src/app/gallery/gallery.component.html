@@ -1,5 +1,6 @@
-<mat-grid-list cols="3" rowHeight="2:1">
+<mat-grid-list cols="3" rowHeight="1:1">
     <mat-grid-tile *ngFor="let image of images;let i=index">
-        <img [src]="image.url" (click)="addToFavorites(image)">
+        <img [src]="image.url" (click)="addToFavorites(image)" >
     </mat-grid-tile>
 </mat-grid-list>
+<mat-spinner *ngIf="count != images.length"></mat-spinner>

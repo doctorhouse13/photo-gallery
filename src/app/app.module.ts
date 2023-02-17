@@ -11,6 +11,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ImageDetailComponent } from './favorites/image-detail/image-detail.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { ImageDetailComponent } from './favorites/image-detail/image-detail.comp
     BrowserAnimationsModule,
     MatButtonModule,
     MatGridListModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

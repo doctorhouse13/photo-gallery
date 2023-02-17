@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ImageService {
   favoriteImages: IImage[] =[];
-  loadedImages: IImage[] = [];
+  loadedImages: {data: IImage[], count: number} = {data : [], count: 0};
   favorites$ = new BehaviorSubject(this.favoriteImages);
   loadedImages$ = new BehaviorSubject(this.loadedImages);
   constructor( private _snackBar: MatSnackBar) { 
@@ -91,13 +91,13 @@ export class ImageService {
 
   getImages(numberOfImages: number): void  {
     let numberToLoad = numberOfImages;
-    if(this.images.length - this.loadedImages.length < numberOfImages )
+    if(this.images.length - this.loadedImages.data.length < numberOfImages )
     {
-      numberToLoad = this.images.length - this.loadedImages.length;
+      numberToLoad = this.images.length - this.loadedImages.data.length;
     }
     
     let nonLoadedImages = [...this.images];
-    this.loadedImages.forEach(element => {
+    this.loadedImages.data.forEach(element => {
       let indexToRemove = nonLoadedImages.findIndex((el)=> el.id == element.id);
       if(indexToRemove >= 0)
         nonLoadedImages.splice(indexToRemove, 1);
@@ -105,7 +105,8 @@ export class ImageService {
     console.log('nonLoaded',nonLoadedImages);
     let imagesToLoad = this.getRandomElementsFromArray(numberToLoad, nonLoadedImages);
     console.log('imagesToLoad',imagesToLoad);
-    imagesToLoad.forEach((el)=> this.loadedImages.push(el));
+    imagesToLoad.forEach((el)=> this.loadedImages.data.push(el));
+    this.loadedImages.count = this.images.length;
     this.loadedImages$.next(this.loadedImages);
 
 
