@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
 
 import { HeaderComponent } from './header.component';
 
@@ -8,7 +10,8 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      imports: [ RouterModule, AppRoutingModule],
+      declarations: [ HeaderComponent ],
     })
     .compileComponents();
 

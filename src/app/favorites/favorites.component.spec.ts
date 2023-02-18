@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { FavoritesComponent } from './favorites.component';
 
@@ -8,6 +10,7 @@ describe('FavoritesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [MatSnackBarModule, MatGridListModule],
       declarations: [ FavoritesComponent ]
     })
     .compileComponents();

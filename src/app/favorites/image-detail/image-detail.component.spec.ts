@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 import { ImageDetailComponent } from './image-detail.component';
 
@@ -8,7 +11,8 @@ describe('ImageDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImageDetailComponent ]
+      declarations: [ ImageDetailComponent ],
+      imports: [AppRoutingModule, MatSnackBarModule]
     })
     .compileComponents();
 
