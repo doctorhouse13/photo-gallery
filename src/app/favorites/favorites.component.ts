@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {  Component,  OnInit  } from '@angular/core';
 import { IImage } from '../core/interfaces/image.interface';
 import { ImageService } from '../image.service';
 

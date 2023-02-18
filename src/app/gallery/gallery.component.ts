@@ -1,4 +1,4 @@
-import { AfterViewChecked , HostListener,ElementRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked , HostListener, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ImageService } from '../image.service';
 
 import { IImage } from '../core/interfaces/image.interface';

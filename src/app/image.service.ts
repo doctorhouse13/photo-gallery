@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IImage } from './core/interfaces/image.interface';
-import {MatSnackBar, MatSnackBarRef} from '@angular/material/snack-bar';
+import {MatSnackBar,} from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
