@@ -3,4 +3,4 @@
         <img [src]="image.url" (click)="addToFavorites(image)" >
     </mat-grid-tile>
 </mat-grid-list>
-<mat-spinner *ngIf="count != images.length"></mat-spinner>
+<mat-spinner #spinner *ngIf="count != images.length"></mat-spinner>
