@@ -16,7 +16,7 @@ export class ImageDetailComponent {
     route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        this.image = imageService.images.find((img)=> img.id == this.id );
+        this.image = imageService.favoriteImages.find((img)=> img.id == this.id );
       }
     );
   }
