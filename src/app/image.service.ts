@@ -39,7 +39,6 @@ export class ImageService {
 
   getFavorites() : IImage[]  {
     let favsString : string | null= localStorage.getItem('favs' );
-    console.log(favsString);
     let favs: IImage[] =[];
     if(favsString != null)
       favs = JSON.parse(favsString) ;
@@ -51,7 +50,6 @@ export class ImageService {
     if (favs.filter(e => e.url == image.url).length == 0) {
     // if(!favs.includes(image)) {
       favs.push(image);
-      // console.log(favs);
       let favsString: string = JSON.stringify(favs);
       localStorage.setItem('favs', favsString );
       this.favoriteImages = favs;
@@ -85,7 +83,7 @@ export class ImageService {
 
   loadImages() {
     setTimeout(()=> {
-      this.getImages(9);
+      this.getImages(3);
     }, this.randomIntFromInterval(200,300));
   }
 
@@ -102,9 +100,8 @@ export class ImageService {
       if(indexToRemove >= 0)
         nonLoadedImages.splice(indexToRemove, 1);
     });
-    console.log('nonLoaded',nonLoadedImages);
+    
     let imagesToLoad = this.getRandomElementsFromArray(numberToLoad, nonLoadedImages);
-    console.log('imagesToLoad',imagesToLoad);
     imagesToLoad.forEach((el)=> this.loadedImages.data.push(el));
     this.loadedImages.count = this.images.length;
     this.loadedImages$.next(this.loadedImages);
