@@ -83,7 +83,7 @@ export class ImageService {
 
   loadImages() {
     setTimeout(()=> {
-      this.getImages(3);
+      this.getImages(6);
     }, this.randomIntFromInterval(200,300));
   }
 
