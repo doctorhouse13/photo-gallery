@@ -1,4 +1,4 @@
-<mat-grid-list cols="3" rowHeight="2:1">
+<mat-grid-list cols="3" rowHeight="1.2:1">
     <mat-grid-tile *ngFor="let image of favoriteImages;let i=index">
         <img [src]="image.url" [routerLink]="['/photos',image.id]">
     </mat-grid-tile>
