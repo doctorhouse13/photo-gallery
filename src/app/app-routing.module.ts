@@ -5,10 +5,10 @@ import { ImageDetailComponent } from './favorites/image-detail/image-detail.comp
 import { GalleryComponent } from './gallery/gallery.component';
 
 const routes: Routes = [
-  { path: 'gallery', component: GalleryComponent },
+  { path: '', component: GalleryComponent },
   { path: 'favorites', component: FavoritesComponent },
   { path: 'photos/:id', component: ImageDetailComponent },
-  { path: '',   redirectTo: '/gallery', pathMatch: 'full' },
+  // { path: '',   redirectTo: '/gallery', pathMatch: 'full' },
 ];
 
 @NgModule({

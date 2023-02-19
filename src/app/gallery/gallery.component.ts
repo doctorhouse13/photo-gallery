@@ -14,17 +14,18 @@ export class GalleryComponent implements OnInit,AfterViewChecked, OnDestroy {
 
 
   @ViewChild('spinner', {static: false}) spinner: MatProgressSpinner;
-  isSpinnerScrolledIntoView: boolean = false;
-  loading: boolean = false;
+
   @HostListener('window:scroll', ['$event'])
   isScrolledIntoView(){
     this.checkScrollSpinner();
     
   }
-
+  isSpinnerScrolledIntoView: boolean = false;
+  loading: boolean = false;
   images: IImage[]= [];
   imagesSubscription: Subscription ;
   count: number = -1;
+
   constructor (private imageService: ImageService) {
     
     this.imagesSubscription = this.imageService.loadedImages$.subscribe((res)=> {
@@ -42,7 +43,6 @@ export class GalleryComponent implements OnInit,AfterViewChecked, OnDestroy {
 
   ngAfterViewChecked(): void {
     this.checkScrollSpinner();
-    
   }
  
   ngOnDestroy(): void {

@@ -93,20 +93,18 @@ export class ImageService {
     {
       numberToLoad = this.images.length - this.loadedImages.data.length;
     }
-    
+    //finds non-loaded images
     let nonLoadedImages = [...this.images];
     this.loadedImages.data.forEach(element => {
       let indexToRemove = nonLoadedImages.findIndex((el)=> el.id == element.id);
       if(indexToRemove >= 0)
         nonLoadedImages.splice(indexToRemove, 1);
     });
-    
+    //finds images to load
     let imagesToLoad = this.getRandomElementsFromArray(numberToLoad, nonLoadedImages);
     imagesToLoad.forEach((el)=> this.loadedImages.data.push(el));
     this.loadedImages.count = this.images.length;
     this.loadedImages$.next(this.loadedImages);
-
-
   }
 
   getRandomElementsFromArray(numberToGet: number, theArray: IImage[]): IImage[]

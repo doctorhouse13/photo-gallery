@@ -1,4 +1,5 @@
-import {  Component,  OnInit  } from '@angular/core';
+import {  Component,  OnDestroy,  } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IImage } from '../core/interfaces/image.interface';
 import { ImageService } from '../image.service';
 
@@ -7,18 +8,21 @@ import { ImageService } from '../image.service';
   templateUrl: './favorites.component.html',
   styleUrls: ['./favorites.component.scss']
 })
-export class FavoritesComponent implements OnInit {
+export class FavoritesComponent implements OnDestroy {
 
 
   favoriteImages: IImage[]= [];
-
+  favoritesSubscription: Subscription;
   constructor (private imageService: ImageService) {
-    imageService.favorites$.subscribe((favs)=> {
+    this.favoritesSubscription = this.imageService.favorites$.subscribe((favs)=> {
       this.favoriteImages = favs;
     })
   }
 
-  ngOnInit(): void {
-    
+
+
+  ngOnDestroy(): void {
+    if(this.favoritesSubscription)
+      this.favoritesSubscription.unsubscribe();
   }
 }

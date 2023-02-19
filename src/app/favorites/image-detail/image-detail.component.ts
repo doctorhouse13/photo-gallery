@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { IImage } from 'src/app/core/interfaces/image.interface';
 import { ImageService } from 'src/app/image.service';
 
@@ -8,12 +9,14 @@ import { ImageService } from 'src/app/image.service';
   templateUrl: './image-detail.component.html',
   styleUrls: ['./image-detail.component.scss']
 })
-export class ImageDetailComponent {
+export class ImageDetailComponent implements OnDestroy {
 
   id: number | null = null;
   image: IImage | undefined = undefined;
+  routeSubscription: Subscription;
+
   constructor(route: ActivatedRoute, private  imageService: ImageService) {
-    route.params.subscribe(
+    this.routeSubscription = route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
         this.image = imageService.favoriteImages.find((img)=> img.id == this.id );
@@ -24,5 +27,10 @@ export class ImageDetailComponent {
   removeFromFavorites() {
     if(this.image)
       this.imageService.removeFromFavorites(this.image);
+  }
+  
+  ngOnDestroy(): void {
+    if(this.routeSubscription)
+      this.routeSubscription.unsubscribe();
   }
 }
