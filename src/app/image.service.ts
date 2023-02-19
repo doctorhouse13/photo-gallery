@@ -35,6 +35,18 @@ export class ImageService {
     {"id":15,  "url":"assets/995-800x800.jpg"},
     {"id":16,  "url":"assets/1062-800x800.jpg"},
     {"id":17,  "url":"assets/1074-800x800.jpg"},
+    {"id":18,  "url":"assets/683-800x800.jpg"},
+    {"id":19,  "url":"assets/773-800x800.jpg"},
+    {"id":20,  "url":"assets/744-800x800.jpg"},
+    {"id":21,  "url":"assets/619-800x800.jpg"},
+    {"id":22,  "url":"assets/519-800x800.jpg"},
+    {"id":23,  "url":"assets/1013-800x800.jpg"},
+    {"id":24,  "url":"assets/165-800x800.jpg"},
+    {"id":25,  "url":"assets/810-800x800.jpg"},
+    {"id":26,  "url":"assets/186-800x800.jpg"},
+    {"id":27,  "url":"assets/345-800x800.jpg"},
+    {"id":28,  "url":"assets/212-800x800.jpg"},
+    {"id":29,  "url":"assets/465-800x800.jpg"},
   ]
 
   getFavorites() : IImage[]  {
